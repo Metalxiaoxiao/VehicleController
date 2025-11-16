@@ -22,6 +22,8 @@ virtualFolder:
               files:
                 - path: Core/Src/main.c
                 - path: Core/Src/gpio.c
+                - path: Core/Src/dma.c
+                - path: Core/Src/usart.c
                 - path: Core/Src/PS2.c
                 - path: Core/Src/tim.c
                 - path: Core/Src/stm32f1xx_it.c
@@ -43,6 +45,7 @@ virtualFolder:
             - path: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c
             - path: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c
             - path: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c
+            - path: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c
             - path: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
             - path: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c
             - path: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c
@@ -134,6 +137,11 @@ targets:
         otherCmds: ""
         proType: 1
         speed: 8000
+      OpenOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        interface: cmsis-dap-v1
+        target: stm32f1x
       STLink:
         address: "0x08000000"
         bin: ""
@@ -144,4 +152,4 @@ targets:
         resetMode: default
         runAfterProgram: true
         speed: 4000
-    uploader: STLink
+    uploader: OpenOCD
